@@ -2,13 +2,10 @@ package job4j.array;
 
 public class ArrayChar {
     public static boolean startsWith(char[] word, char[] pref) {
-        boolean result = false;       // h e l l o     h e l
+        boolean result = true;
         for (int index = 0; index != pref.length; index++) {
 
-            if (word[index] == pref[index]) {
-                result = true;
-                continue;
-            } else if (word[index] != pref[index]) {
+            if (word[index] != pref[index]) {
                 result = false;
                 break;
             }
