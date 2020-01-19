@@ -5,7 +5,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class FindLoopTest {
-/**@Test
+@Test
 public void whenArrayHas5Then0() {
     FindLoop find = new FindLoop();
     int[] input = new int[] {5, 10, 3};
@@ -24,7 +24,7 @@ public void whenArrayHasNThenM1(){
     int expect = -1;
     assertThat(result, is(expect));
 }
-*/
+
 
     @Test
     public void whenFind3() {
