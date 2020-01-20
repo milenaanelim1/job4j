@@ -13,6 +13,7 @@ public class MatrixTest {
         int[][] expect = {
                 {1, 2,},
                 {2, 4,},
+
         };
         assertThat(table, is(expect));
     }
