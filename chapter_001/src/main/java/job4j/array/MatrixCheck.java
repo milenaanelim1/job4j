@@ -8,9 +8,9 @@ public class MatrixCheck {
                 if (i == j) {
                     if (board[i][j] == 'X') {
                         for (int index = 0; index != 5; index++) {
-                            if ((board[i][j] == board[i + 1][j]) || (board[i][j] == board[i][j + 1])) ;
+                            if ((board[i][j] == board[i + 1][j]) || (board[i][j] == board[i][j + 1])) {
                             result = true;
-                            break;
+                            break;}
                         }
                     }
                 }
