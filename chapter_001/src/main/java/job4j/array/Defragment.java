@@ -4,16 +4,14 @@ public class Defragment {
     public static String[] compress(String[] array) {
         for (int index = 0; index < array.length; index++) {
             if (array[index] == null) {
-              //  int point = index; // указатель, на не null ячейку.
-                for(int ind2 = index+1; ind2<array.length; ind2++){
-                    if (array[ind2]!=null){
+                for (int ind2 = index + 1; ind2 < array.length; ind2++) {
+                    if (array[ind2] != null) {
                         String tmp = array[index];
-                        array[index]=array[ind2];
-                        array[ind2]=tmp;
+                        array[index] = array[ind2];
+                        array[ind2] = tmp;
+                        break;
                     }
                 }
-                // переместить первую не null ячейку
-                // Здесь нужен цикл while
             }
             System.out.print(array[index] + " ");
         }
