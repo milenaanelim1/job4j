@@ -14,6 +14,7 @@ public class DefragmentTest {
         assertThat(compressed, is(expected));
     }
 
+
     @Test
     public void firstNull() {
         String[] input = {null, "I", "wanna", null, "be", null, "compressed"};

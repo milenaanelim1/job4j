@@ -4,32 +4,21 @@ public class Defragment {
     public static String[] compress(String[] array) {
         for (int index = 0; index < array.length; index++) {
             if (array[index] == null) {
-                if (array[array.length - index - 1] != null) {
-
-                    String point = array[index];
-
-                    array[index] = array[array.length - index - 1];
-
-                    array[array.length - index - 1] = point;
-                }
-
-                else if(array[array.length - index - 1] == null){
-                    for(int index2 = 0; index2 < array.length; index2++) {
-
-                        String point = array[index];
-
-                        array[index] = array[array.length - index2 - 1];
-
-                        array[array.length - index2 - 1] = point;
+              //  int point = index; // указатель, на не null ячейку.
+                for(int ind2 = index+1; ind2<array.length; ind2++){
+                    if (array[ind2]!=null){
+                        String tmp = array[index];
+                        array[index]=array[ind2];
+                        array[ind2]=tmp;
                     }
                 }
+                // переместить первую не null ячейку
+                // Здесь нужен цикл while
             }
-
             System.out.print(array[index] + " ");
         }
         return array;
     }
-
 
     public static void main(String[] args) {
         String[] input = {"I", null, "wanna", null, "be", null, "compressed"};
@@ -41,5 +30,3 @@ public class Defragment {
     }
 }
 
-
-// [index +1] while (array[index]!= array[array.length-1]
