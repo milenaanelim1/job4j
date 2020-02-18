@@ -29,4 +29,5 @@ public class SqMaxTest {
         int result = SqMax.max(5,5,5,5);
         assertThat(result,is(5));
     }
+
 }
