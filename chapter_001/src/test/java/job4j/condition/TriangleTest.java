@@ -10,6 +10,7 @@ public class TriangleTest {
         boolean result = Triangle.exist(3.0, 4.0, 5.0);
         assertThat(result, is(true));
     }
+
     @Test
     public void whenNotExist(){
         boolean result = Triangle.exist(1,1,4);
