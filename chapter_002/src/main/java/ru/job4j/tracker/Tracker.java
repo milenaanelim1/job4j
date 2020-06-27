@@ -13,7 +13,7 @@ public class Tracker {
         return item;
     }
 
-    public Item[] findAll(Item[] items, int size){
+    public Item[] findAll(Item[] items, int size) {
         this.size = size;
         Item[] itemsWithoutNull = new Item[items.length];
         for (int index = 0; index < items.length; index++) {
@@ -27,15 +27,15 @@ public class Tracker {
         for (int index = 0; index < itemsWithoutNull.length; index++) {
             System.out.println(itemsWithoutNull[index]);
         }
-       return items;
+        return items;
     }
 
-    public Item[] findByName(String key){
+    public Item[] findByName(String key) {
         Item[] itemsWithoutNull = new Item[items.length];
         int sizw = 0;
-        for(int i = 0; i<items.length;i++){
+        for (int i = 0; i < items.length; i++) {
             Item item = items[i];
-            if(item.getName().equals(key)){
+            if (item.getName().equals(key)) {
                 itemsWithoutNull[sizw] = item;
                 sizw++;
             }
