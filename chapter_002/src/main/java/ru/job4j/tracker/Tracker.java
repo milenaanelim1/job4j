@@ -14,48 +14,48 @@ public class Tracker {
     }
 
     public Item[] findAll(Item[] items, int size) {
-        this.size = size;
-        Item[] itemsWithoutNull = new Item[items.length];
-        for (int index = 0; index < items.length; index++) {
-            Item item = items[index];
-            if (item != null) {
-                itemsWithoutNull[size] = item;
-                size++;
-            }
-        }
-        itemsWithoutNull = Arrays.copyOf(itemsWithoutNull, size);
-        for (int index = 0; index < itemsWithoutNull.length; index++) {
-            System.out.println(itemsWithoutNull[index]);
-        }
-        return items;
+        return Arrays.copyOf(items, size);
     }
 
-    public Item[] findByName(String key) {
-        Item[] itemsWithoutNull = new Item[items.length];
-        int sizw = 0;
-        for (int i = 0; i < items.length; i++) {
+    public Item findByName(String key) {
+       // Item[] itemsWithoutNull = new Item[size];
+       Item result = null;
+        for (int i = 0; i < size; i++) {
             Item item = items[i];
             if (item.getName().equals(key)) {
-                itemsWithoutNull[sizw] = item;
-                sizw++;
+                result=item;
             }
         }
-        itemsWithoutNull = Arrays.copyOf(itemsWithoutNull, sizw);
-        for (int index = 0; index < itemsWithoutNull.length; index++) {
-            System.out.println(itemsWithoutNull[index]);
-        }
-        return items;
+        return result;
     }
 
-    public Item findById(int id) {
-        Item rsl = null;
+    private int indexOf(int id) {
+        int rsl = -1;
         for (int index = 0; index < size; index++) {
-            Item item = items[index];
-            if (item.getId() == id) {
-                rsl = item;
+            if (items[index].getId() == id) {
+                rsl = index;
                 break;
             }
         }
         return rsl;
     }
+
+    public Item findById(int id) {
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
+    }
+    public boolean replace(int id, Item item){
+        int index = indexOf(id);
+        item.setId(items[index].getId());
+        items[index]= item;
+        return index!=-1?true:false;
+    }
+
+
+   /** public void edit(Item id) {
+    }
+
+    public void delete(Item item) {
+        item =null;
+    }*/
 }
