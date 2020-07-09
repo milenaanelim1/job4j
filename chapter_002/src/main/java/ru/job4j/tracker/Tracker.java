@@ -17,16 +17,17 @@ public class Tracker {
         return Arrays.copyOf(items, size);
     }
 
-    public Item findByName(String key) {
-       // Item[] itemsWithoutNull = new Item[size];
-       Item result = null;
+    public Item[] findByName(String key) {
+        Item[] result = new Item[size];
+        int newSize = 0;
         for (int i = 0; i < size; i++) {
             Item item = items[i];
             if (item.getName().equals(key)) {
-                result=item;
+                result[newSize] = item;
+                newSize++;
             }
         }
-        return result;
+        return Arrays.copyOf(result, newSize);
     }
 
     private int indexOf(int id) {
@@ -44,18 +45,27 @@ public class Tracker {
         int index = indexOf(id);
         return index != -1 ? items[index] : null;
     }
-    public boolean replace(int id, Item item){
+
+
+    public boolean replace(int id, Item item) {
+        boolean result = false;
         int index = indexOf(id);
-        item.setId(items[index].getId());
-        items[index]= item;
-        return index!=-1?true:false;
+        if (index != -1) {
+            item.setId(id);
+            items[index] = item;
+            result = true;
+        }
+        return result;
     }
 
-
-   /** public void edit(Item id) {
+    public boolean delete(int id) {
+        boolean rsl = indexOf(id) != -1;
+        if (rsl) {
+            items[indexOf(id)] = null;
+            System.arraycopy(items, indexOf(id) + 1, items, indexOf(id), items.length - 1 - indexOf(id));
+            items[items.length - 1] = null;
+        }
+        return rsl;
     }
 
-    public void delete(Item item) {
-        item =null;
-    }*/
 }
