@@ -13,27 +13,21 @@ public class StartUI {
             if (select == 0) {
                 System.out.println("=== Create a new Item ===");
                 String name = input.askStr("Enter name: ");
-                int id = input.askInt("Enter id: ");
-                Item item = new Item();
+                Item item = new Item(name);
+                item.setName(name);
                 tracker.add(item);
             } else if (select == 1) {
                 Item[] items = new Item[100];
-                Item[] arr = tracker.findAll(items, 100);
-                int size = 0;
-                Item [] itemsWithoutNull = new Item[size];
-                for (Item item : arr) {
-                    if (item != null) {
-                        itemsWithoutNull[size] = item;
-                        size++;
-                    }
-                }
-                itemsWithoutNull = Arrays.copyOf(itemsWithoutNull, size);
-                for (Item item : itemsWithoutNull) {
+                tracker.findAll(items, 100);
+                for (Item item : items) {
                     System.out.println(item.getName());
                 }
             } else if (select == 2) {
                 int id = input.askInt("Enter id: ");
-                Item item = new Item();
+                String name = input.askStr("Enter a new name of item: ");
+                Item item = new Item(name);
+                item.setName(name);
+                item.setId(id);
                 boolean tr = tracker.replace(id, item);
                 if(tr){
                     System.out.println("=== Item was replaced ===");
@@ -42,8 +36,8 @@ public class StartUI {
                 }
             } else if (select == 3) {
                 int id = input.askInt("Enter id: ");
-                tracker.delete(id);
-                if(tracker.findById(id)==null){
+                boolean tr = tracker.delete(id);
+                if(tr){
                     System.out.println("=== Item was successfully deleted ===");
                 }else{
                     System.out.println("=== Item was not found ===");
