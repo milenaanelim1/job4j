@@ -1,8 +1,6 @@
 package ru.job4j.tracker;
 
 
-import java.util.Arrays;
-
 public class StartUI {
 
     public void init(Input input, Tracker tracker) {
@@ -17,9 +15,8 @@ public class StartUI {
                 item.setName(name);
                 tracker.add(item);
             } else if (select == 1) {
-                Item[] items = new Item[100];
-                tracker.findAll(items, 100);
-                for (Item item : items) {
+                Item[] tr = tracker.findAll();
+                for (Item item : tr) {
                     System.out.println(item.getName());
                 }
             } else if (select == 2) {
