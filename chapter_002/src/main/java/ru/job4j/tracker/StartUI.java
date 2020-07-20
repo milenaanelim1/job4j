@@ -26,25 +26,25 @@ public class StartUI {
                 item.setName(name);
                 item.setId(id);
                 boolean tr = tracker.replace(id, item);
-                if(tr){
+                if (tr) {
                     System.out.println("=== Item was replaced ===");
-                }else{
+                } else {
                     System.out.println("=== Item was not found ===");
                 }
             } else if (select == 3) {
                 int id = input.askInt("Enter id: ");
                 boolean tr = tracker.delete(id);
-                if(tr){
+                if (tr) {
                     System.out.println("=== Item was successfully deleted ===");
-                }else{
+                } else {
                     System.out.println("=== Item was not found ===");
                 }
             } else if (select == 4) {
                 int id = input.askInt("Enter id:");
                 Item tr = tracker.findById(id);
-                if(tr!=null){
+                if (tr != null) {
                     System.out.println(tr.getName());
-                }else{
+                } else {
                     System.out.println("=== Item was not found ===");
                 }
             } else if (select == 5) {
